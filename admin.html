@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Togel</title>
+  <meta charset="UTF-8">
+  <style>
+    body { font-family: Arial; max-width: 600px; margin: auto; padding: 20px; }
+    input { margin: 5px 0; padding: 8px; width: 100px; }
+    button { padding: 10px 20px; margin-top: 10px; }
+    textarea { width: 100%; height: 200px; margin-top: 20px; font-family: monospace; }
+  </style>
+</head>
+<body>
+  <h2>Admin Panel – Atur Angka Menang</h2>
+
+  <label>Budi:</label><br>
+  <input type="text" id="budi" placeholder="4 digit"><br>
+
+  <label>Rina:</label><br>
+  <input type="text" id="rina" placeholder="4 digit"><br>
+
+  <label>Andi:</label><br>
+  <input type="text" id="andi" placeholder="4 digit"><br>
+
+  <label>Sari:</label><br>
+  <input type="text" id="sari" placeholder="4 digit"><br>
+
+  <label>Joko:</label><br>
+  <input type="text" id="joko" placeholder="4 digit"><br>
+
+  <button onclick="generate()">Buat hasil.json</button>
+
+  <h3>Copy dan upload ke Netlify sebagai <code>hasil.json</code></h3>
+  <textarea id="output" readonly></textarea>
+
+  <script>
+    function generate() {
+      const hasil = {
+        "hasil": {
+          "Budi": document.getElementById("budi").value,
+          "Rina": document.getElementById("rina").value,
+          "Andi": document.getElementById("andi").value,
+          "Sari": document.getElementById("sari").value,
+          "Joko": document.getElementById("joko").value
+        }
+      };
+
+      document.getElementById("output").value = JSON.stringify(hasil, null, 2);
+    }
+  </script>
+</body>
+</html>
